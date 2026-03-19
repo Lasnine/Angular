@@ -1,4 +1,4 @@
-.comida{
+.comidas{
     margin-top: 100px;
     margin-left: 200px;
     display: grid;
@@ -7,24 +7,3 @@
     gap: 5rem;
 }
 
-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.comida-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #eee;
-}
-
-.comida-ajuste{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}

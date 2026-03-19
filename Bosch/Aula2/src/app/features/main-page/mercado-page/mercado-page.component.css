@@ -1,0 +1,8 @@
+.supermercado{
+    margin-top: 100px;
+    margin-left: 200px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    gap: 5rem;
+}
