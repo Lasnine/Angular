@@ -1,0 +1,30 @@
+.supermercado{
+    margin-top: 100px;
+    margin-left: 200px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    gap: 5rem;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.marcado-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+}
+
+.mercado-ajuste{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

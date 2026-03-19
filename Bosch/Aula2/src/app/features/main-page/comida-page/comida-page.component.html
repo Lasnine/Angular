@@ -1,0 +1,8 @@
+<div class="comida">
+    <div *ngFor="let food of comidas" class="comida-ajuste">
+    <img [src]="food.image" alt="{{food.name}}" class="comida-image">
+    <br>
+    <h3>{{food.name}}</h3>
+    <p>R$ {{food.price}}</p>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+nav{
+    width: 10rem;
+    height: calc(100vh - 5rem);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 10px black;
+    padding: 1rem;
+    font-family: preconnect;
+    section:first-child{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+    }
+        
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.icon{
+    width: 3rem;
+    height: 100%;
+}

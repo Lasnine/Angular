@@ -1,0 +1,8 @@
+<div class="supermercado">
+    <div *ngFor="let market of mercado" class="mercado-ajuste">
+        <img [src]="market.image" alt="{{market.name}}" class="marcado-image">
+        <br>
+        <h3>{{market.name}}</h3>
+        <p>R$ {{market.price}}</p>
+    </div>
+</div>
