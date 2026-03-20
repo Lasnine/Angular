@@ -3,8 +3,8 @@ header{
     justify-content: space-between;
     display: flex;
     align-items: center;
-    height: 5rem;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
+    height: 6rem;
+    box-shadow: 0 0 10px rgb(104, 10, 10);
     padding: 0 2rem;
     font-weight: bold;
     background-color: rgb(104, 10, 10);
@@ -23,5 +23,10 @@ a{
 
 .icon{
     width: 3rem;
+    height: 100%;
+}
+
+.logo{
+    width: 6rem;
     height: 100%;
 }

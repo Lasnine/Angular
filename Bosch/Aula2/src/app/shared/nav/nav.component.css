@@ -1,11 +1,11 @@
 nav{
-    width: 10rem;
-    height: calc(100vh - 5rem);
+    width: 7rem;
+    height: calc(100vh - 6rem);
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 10px rgb(104, 10, 10);
     padding: 1rem;
     font-family: preconnect;
     section:first-child{
@@ -14,6 +14,7 @@ nav{
         align-items: start;
         gap: 0.5rem;
     }
+    background-color: rgb(104, 10, 10);;
         
 }
 a{

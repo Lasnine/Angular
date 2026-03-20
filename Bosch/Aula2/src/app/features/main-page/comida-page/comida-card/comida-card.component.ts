@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {IComida} from '../Comida.mock';
 @Component({
   selector: 'app-comida-card',
@@ -8,4 +8,11 @@ import {IComida} from '../Comida.mock';
 export class ComidaCardComponent {
   @Input()
   comida!: IComida;
+
+   @Output()
+  onClick : EventEmitter<IComida> = new EventEmitter();
+
+  clicked = () => {
+    this.onClick.emit(this.comida);
+  }
 }

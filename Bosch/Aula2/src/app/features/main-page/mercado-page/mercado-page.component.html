@@ -1,3 +1,8 @@
 <div class="supermercado">
-    <app-mercado-card *ngFor="let market of mercado; track:$index"  [mercado] ="market"></app-mercado-card>
+    <app-mercado-card *ngFor="let market of mercado; track:$index"  [mercado] ="market" (onClick)="clicked($event)"></app-mercado-card>
+    <app-mercado-details-modal 
+        *ngIf="abrido == true"
+        (onClick)="close()"
+        [market]="this.selectedMarket">
+    </app-mercado-details-modal>
 </div>
