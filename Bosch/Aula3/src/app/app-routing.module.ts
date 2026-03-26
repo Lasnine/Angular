@@ -7,7 +7,8 @@ import { RegisterPageComponent } from './features/register-page/register-page.co
 const routes: Routes = [
   {path: '', component: MainPageComponent, children:[]},
   {path: 'login', component:LoginPageComponent},
-  {path: 'Registrar', component:RegisterPageComponent},
+  {path: 'login:tab', component:LoginPageComponent},
+  {path: 'cadastro', component:RegisterPageComponent},
 ];
 
 @NgModule({

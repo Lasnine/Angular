@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IUser } from '../register-page/validate-cpf/user.mock';
 
 @Component({
   selector: 'app-main-page',

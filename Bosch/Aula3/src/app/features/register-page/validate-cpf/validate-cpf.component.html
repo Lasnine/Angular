@@ -1,0 +1,31 @@
+<div class="cadastro-main">
+    <p class="cadastro-title">Cadastrar</p>
+    <form action="" class="cadastro-form">
+        <input type="text"
+        placeholder="Email"
+        class="cadastro-input"
+        [(ngModel)]="user.email"
+        required>
+        <br>
+        <input type="text"
+        placeholder="CPF"
+        class="cadastro-input"
+        [(ngModel)]="user.cpf"
+        required>
+        <br>
+        <input type="text"
+        placeholder="Senha"
+        class="cadastro-input"
+        [(ngModel)]="user.senha"
+        required>
+        <br>
+        <button type="submit" class="cadastro-button" (onClick)="submit()">
+            Salvar
+        </button>
+        <br>
+        <div class="cadastro-login">
+            <div>Have an account?</div>
+            <a routerLink="/login" class="">Login</a>
+        </div>
+    </form>
+</div>

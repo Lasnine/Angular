@@ -13,8 +13,6 @@ export class DetailsModalComponent {
   @Input()
   SaveLabel?: string;
 
-
-
   @Output()
   onClose: EventEmitter<void> = new EventEmitter();
   @Output()

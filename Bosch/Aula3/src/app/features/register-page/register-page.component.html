@@ -1,5 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
+
 <app-header></app-header>
-<div class="login-container">
-    <app-nav></app-nav>
-    <router-outlet></router-outlet>
+<app-nav></app-nav>
+
+<div class="cadastro-container">
+    <app-validate-cpf (onClick)="receber($event)"></app-validate-cpf>
 </div>
+
