@@ -1,0 +1,18 @@
+<header></header>
+<div class="container">
+    <div class="toolbar">
+    <label>Cor:</label>
+    <input type="color" [(ngModel)]="selectedColor">
+    </div>
+
+    <div class="grid">
+        @for (color of grid; track $index; let i = $index) {
+        <div 
+            class="pixel"
+            [style.background]="color"
+            (click)="paintPixel(i)">
+        </div>
+        }
+    </div>
+
+</div>
