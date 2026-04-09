@@ -8,13 +8,15 @@
 
     <div class="login-main">
         <p class="login-title">Entrar</p>
-        <form action="" class="login-form">
+        <form action="get" [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
             <input type="text"
             placeholder="Username"
+            formControlName="username"
             class="login-input">
             <br>
-            <input type="text"
+            <input type="password"
             placeholder="Password"
+            formControlName="password"
             class="login-input">
             <br>
             <button type="submit" class="login-button">

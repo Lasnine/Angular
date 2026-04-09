@@ -2,15 +2,49 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Header } from '../../shared/header/header';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { IUser } from './user.mock';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoginDto } from '../../domain/UserInterface';
+import { AuthApi } from '../../domain/auth.api';
 
 @Component({
   selector: 'app-subscribe-page',
-  imports: [Header, RouterLink, RouterOutlet, FormsModule],
+  imports: [Header, RouterLink, FormsModule, ReactiveFormsModule],
   templateUrl: './subscribe-page.html',
   styleUrl: './subscribe-page.css',
 })
 export class SubscribePage {
+  constructor(private api : AuthApi){}
+  subscribeForm : FormGroup = new FormGroup ({
+    username: new FormControl(``, [Validators.required]),
+    password: new FormControl(``, [Validators.required])
+  })
+
+  get Username(){
+    return this.subscribeForm.get("username")
+  }
+  get Password(){
+    return this.subscribeForm.get("password")
+  }
+  
+  subscribe = () => {
+    if(!this.subscribeForm.valid)
+    {
+      alert("Todos os campos devem ser preenchidos!")
+      return
+    }
+    const data: LoginDto = {
+      password: this.Password?.value,
+      username: this.Username?.value
+    }
+    this.api.subscribe(data).subscribe(
+      res => {
+        console.log(res)
+        alert("Cadastro realizado com sucesso!");
+        this.subscribeForm.reset();
+      }
+    )
+  }
+
   user: IUser = {
     username: '',
     password: ''

@@ -5,13 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pixel-component',
-  imports: [Header, RouterLink, RouterOutlet, FormsModule],
+  imports: [FormsModule],
   templateUrl: './pixel-component.html',
   styleUrl: './pixel-component.css',
 })
+
 export class PixelComponent {
   grid: string[] = [];
-  selectedColor: string = '#ff0000';
+  selectedColor: string = '#ffffff';
   ngOnInit() {
     this.grid = Array(10000).fill('#ffffff'); 
   }

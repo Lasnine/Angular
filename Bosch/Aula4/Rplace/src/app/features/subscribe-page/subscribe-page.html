@@ -8,20 +8,20 @@
 
     <div class="Subscribe-main">
         <p class="Subscribe-title">Cadastrar</p>
-        <form action="" class="Subscribe-form">
+        <form action="subscribeForm" [formGroup]="subscribeForm" (ngSubmit)="subscribe()" class="Subscribe-form">
             <input type="text"
             placeholder="Username"
+            formControlName="username"
             class="Subscribe-input"
-            [(ngModel)]="user.username"
             required>
             <br>
-            <input type="text"
+            <input type="password"
             placeholder="Password"
             class="Subscribe-input"
-            [(ngModel)]="user.password"
+            formControlName="password"
             required>
             <br>
-            <button type="submit" class="Subscribe-button" (onClick)="submit()">
+            <button type="submit" class="Subscribe-button">
                 Salvar
             </button>
             <br>
