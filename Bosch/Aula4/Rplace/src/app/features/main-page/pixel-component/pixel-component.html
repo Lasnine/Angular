@@ -13,8 +13,10 @@
         @for (color of grid; track $index; let i = $index) {
             <div 
                 class="pixel"
-                [style.background]="color"
-                (click)="paintPixel(i)"
+                [style.background]="color || '#ffffff'"
+                (mousedown)="onMouseDown($event,i)"
+                (mouseup)="onMouseUp()"
+                (mousemove)="onMouseMove($event, i)"
                 >
                 
             </div>

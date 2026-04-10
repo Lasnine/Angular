@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Header } from '../../shared/header/header';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { IUser } from './user.mock';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginDto } from '../../domain/UserInterface';
@@ -13,7 +13,7 @@ import { AuthApi } from '../../domain/auth.api';
   styleUrl: './subscribe-page.css',
 })
 export class SubscribePage {
-  constructor(private api : AuthApi){}
+  constructor(private api : AuthApi, private router: Router){}
   subscribeForm : FormGroup = new FormGroup ({
     username: new FormControl(``, [Validators.required]),
     password: new FormControl(``, [Validators.required])
@@ -41,6 +41,7 @@ export class SubscribePage {
         console.log(res)
         alert("Cadastro realizado com sucesso!");
         this.subscribeForm.reset();
+        this.router.navigate(['/']);
       }
     )
   }
