@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthApi } from '../../../domain/auth.api';
-import { IPixel } from '../../../domain/PixelInterface';
+import { IPixel } from '../../../domain/interface/PixelInterface';
+import { RoomApi } from '../../../domain/room.api';
+import { ActivatedRoute } from '@angular/router';
+import { Subscriber } from 'rxjs';
+
 
 @Component({
   selector: 'app-pixel-component',
@@ -10,14 +14,75 @@ import { IPixel } from '../../../domain/PixelInterface';
   styleUrl: './pixel-component.css',
 })
 
-export class PixelComponent {
-  constructor (private api : AuthApi){}
+export class PixelComponent implements OnInit {
+  constructor (
+    private roomApi : RoomApi, 
+    private router: ActivatedRoute
+  ){}
 
+  private idRoom : string = ""
+  // private pixelSubscription : Subscribe
+  protected pixels = signal<IPixel[][]>([]);
   grid: string[] = [];
   selectedColor: string = '#ffffff';
-  ngOnInit() {
+  ngOnInit(): void {
     this.grid = Array(10000).fill('#ffffff'); 
+    this.router.paramMap.forEach(param => {
+      this.idRoom = param.get("id") ?? "";
+    })
+    let lines = []
+    for ( let i = 0; i < 100; i++){
+      let line: IPixel[] = []
+      for (let j = 0; j< 100; j++){
+        line.push({
+          Color: 'white',
+          X: j,
+          Y: i
+        })
+        lines.push(line)
+      }
+      this.pixels.set(lines)
+      this.roomApi.connect(this.idRoom)
+      this.roomApi.pixelsObservable.subscribe(res=>{
+        switch(res.type){
+          case 'FULL_LOAD':
+            break;
+          case 'SINGLE_LOAD':
+            break;
+          default:
+            break;
+        }
+      })
+    }
   }
+  updateSinglPixel = (data: IPixel) => {
+    this.pixels.update(oldValue => {
+      return oldValue.map(line => {
+        return line.map(pixel => {
+          if(pixel.X == data.X && pixel.Y == data.Y){
+            return data
+          }
+          else{
+            return pixel
+          }
+        })
+      })
+    })
+  }
+  updateOnInit = (data: IPixel[]) => {
+    this.pixels.update(oldValue => {
+      var cloneList = [...oldValue]
+      data.forEach(item => {
+      })
+      
+      return cloneList
+    })
+  }
+  ngOnDestroy = () => {
+    this.roomApi.closseConnection();
+    // this.pixelSubscribe();
+  }
+
   paintPixel(index: number) {
     this.grid[index] = this.selectedColor;
   }

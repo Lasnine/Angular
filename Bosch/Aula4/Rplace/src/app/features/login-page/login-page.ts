@@ -3,7 +3,7 @@ import { Header } from '../../shared/header/header';
 import { ActivatedRoute, RouterLink  } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthApi } from '../../domain/auth.api';
-import { LoginDto } from '../../domain/UserInterface';
+import { LoginDto } from '../../domain/interface/UserInterface';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,10 +1,11 @@
 import { LoginDto } from "./UserInterface";
 
+
 export interface IPixel{
-    Id : string,
+    Id ?: string,
     X : number,
     Y : number,
-    LastChange: string; 
+    LastChange?: string; 
     Color: string;
     User?: LoginDto;
 }

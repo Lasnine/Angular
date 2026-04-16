@@ -6,7 +6,7 @@ import { authGuard, Login } from './domain/auth-guard';
 
 
 export const routes: Routes = [
-    {path: 'pixel', component: MainPage, canActivate: [authGuard] },
-    {path: '', component: LoginPage, canActivate: [Login]},
-    {path: 'cadastro', component: SubscribePage, canActivate: [Login] }
+    {path: 'pixel', component: MainPage, canMatch: [authGuard] },
+    {path: '', component: LoginPage, canMatch: [Login]},
+    {path: 'cadastro', component: SubscribePage, canMatch: [Login] }
 ];

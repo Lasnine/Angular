@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Api } from './api';
-import { IPixel } from './PixelInterface';
+
 import { Observable } from 'rxjs';
+import { IPixel } from './interface/PixelInterface';
 
 @Injectable({
   providedIn: 'root',

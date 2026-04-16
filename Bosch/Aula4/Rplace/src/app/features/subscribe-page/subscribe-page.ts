@@ -3,7 +3,7 @@ import { Header } from '../../shared/header/header';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { IUser } from './user.mock';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { LoginDto } from '../../domain/UserInterface';
+import { LoginDto } from '../../domain/interface/UserInterface';
 import { AuthApi } from '../../domain/auth.api';
 
 @Component({
